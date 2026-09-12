@@ -7,9 +7,10 @@ using namespace std;
 template <class t>
 class MyQueue
 {
-	public:
+private:
 	DblLinkedList<t> linkedList;
-	
+
+public:
 	
 	void Push(t value) {
 		linkedList.InsertAtEnd(value);
@@ -32,8 +33,34 @@ class MyQueue
 	}
 
 	t Back() {
-		return linkedList.GetNodeValueByIndex(linkedList.Size() - 1);
+		return linkedList.GetNodeValueByIndex(Size() - 1);
+	}
+	
+	t GetItemOfIndex(int index) {
+		return linkedList.GetNodeValueByIndex(index);
 	}
 
+	void Reverse() {
+		linkedList.Reverse();
+	}
+
+	void UpdateItemOfIndex(int index, t value) {
+		linkedList.UpdateNode(index, value);
+	}
+
+	void InsertAfter(int index, t value) {
+		linkedList.InsertAfter(index, value);
+	}
+
+	void InsertAtFront(t value) {
+		linkedList.InsertAtBeginning(value);
+	}
+	void InsertAtBack(t value) {
+		linkedList.InsertAtEnd(value);
+	}
+
+	void Clear() {
+		linkedList.Clear();
+	}
 };
 
